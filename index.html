@@ -1196,7 +1196,23 @@
     <script src="assets/js/animation.js"></script>
     <script src="https://unpkg.com/ityped@0.0.10"></script>
     <script src="assets/js/type.js"></script>
+    <script>
+  // Initialize the agent on page load.
+  const fpPromise = import('https://fpjscdn.net/v3/C1sE7HAPCWcPaT6Tc8Oy')
+    .then(FingerprintJS => FingerprintJS.load({
+      region: "ap"
+    }))
+
+  // Get the visitorId when you need it.
+  fpPromise
+    .then(fp => fp.get())
+    .then(result => {
+      const visitorId = result.visitorId
+      console.log(visitorId)
+    })
+</script>
   </body>
 
   <!-- Mirrored from html.designingmedia.com/yogastic/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Oct 2025 07:43:44 GMT -->
 </html>
+
